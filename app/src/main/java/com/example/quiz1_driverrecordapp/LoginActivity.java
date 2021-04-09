@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
-    final int EnterRecord_Activty=1;
     EditText etUsername, etPassword;
     Button btnLogin, btnCancel;
     @Override
@@ -21,8 +20,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (validation()){
-                    Intent intent=new Intent(LoginActivity.this, com.example.quiz1_driverrecordapp.EnterRecord.class);
-                    startActivityForResult(intent, EnterRecord_Activty);
+                    Intent intent=new Intent(LoginActivity.this, com.example.quiz1_driverrecordapp.Record.class);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -40,12 +40,12 @@ public class LoginActivity extends AppCompatActivity {
         Boolean check=true;
         String username= etUsername.getText().toString().trim();
         String password=etPassword.getText().toString();
-        if(username.isEmpty() && username!="Manager")
+        if(username.isEmpty() || (!username.equals("Manager")))
         {
             etUsername.setError("Invalid Username");
             check=false;
         }
-        else if(password.isEmpty() && password!="Manager")
+        else if(password.isEmpty() || (!password.equals("Manager")))
         {
             etUsername.setError("Invalid Password");
             check=false;

@@ -12,7 +12,7 @@ import android.widget.EditText;
 public class EnterRecord extends AppCompatActivity {
 
     EditText etName, etEmail, etPhone, etAddress, etCarPlate;
-    Button btnEnterRecord;
+    Button btnEnterRecord,btnCancel;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +23,10 @@ public class EnterRecord extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String Name=etName.getText().toString().trim();
-                String Email=etName.getText().toString().trim();
-                String Phone=etName.getText().toString().trim();
-                String Address=etName.getText().toString().trim();
-                String CarPlate=etName.getText().toString().trim();
+                String Email=etEmail.getText().toString().trim();
+                String Phone=etPhone.getText().toString().trim();
+                String Address=etAddress.getText().toString().trim();
+                String CarPlate=etCarPlate.getText().toString().trim();
                 if(checkValidation())
                 {
                     Intent intent=new Intent();
@@ -40,7 +40,13 @@ public class EnterRecord extends AppCompatActivity {
                 }
             }
         });
-
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setResult(RESULT_CANCELED);
+                finish();
+            }
+        });
     }
 
     private void init() {
@@ -50,6 +56,7 @@ public class EnterRecord extends AppCompatActivity {
         etAddress=findViewById(R.id.etAddress);
         etCarPlate=findViewById(R.id.etCarPlate);
         btnEnterRecord=findViewById(R.id.btnEnterRecord);
+        btnCancel=findViewById(R.id.btnCancel);
 
     }
     private boolean checkValidation() {

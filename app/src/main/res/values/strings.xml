@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Quiz1_DriverRecordApp</string>
+    <string name="Record_Successfully_Entered">Record Successfully Entered</string>
+    <string name="Record_Not_Entered">Record Not Entered</string>
 </resources>
